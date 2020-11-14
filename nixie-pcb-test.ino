@@ -16,13 +16,8 @@ void setup() {
   pinMode(pinB, OUTPUT);
   pinMode(pinC, OUTPUT);
   pinMode(pinD, OUTPUT);
+  
   pinMode(pinEN, OUTPUT);
-
-  //Nixie anode is fed from 170V power supply via a
-  //MSPA42 high voltage transistor whose BASE is
-  //connected to pinEN on the MCU making this an
-  //Enable pin.
-  digitalWrite(pinEN, HIGH);
 }
 
 void loop() {
@@ -39,7 +34,7 @@ void loop() {
     digitalWrite(pinC, valueC);
     digitalWrite(pinD, valueD);
 
-    //digitalWrite(pinEN, HIGH);
+    digitalWrite(pinEN, HIGH);
 
     /*
     Serial.print(i);
@@ -50,8 +45,9 @@ void loop() {
     Serial.println(valueA);
     */
     
-    delay(500);
-    //digitalWrite(pinEN, LOW);
-    //delay(500);
+    delay(1000);
+    
+    digitalWrite(pinEN, LOW);
+    delay(1000);
   }
 }
